@@ -130,13 +130,15 @@ export function Dashboard() {
         </p>
 
         <button
-          onClick={() =>
-            window.open(
-              'https://script.google.com/macros/s/AKfycbzldkPPgWKE_Yc9AffTFmanUwW-2LqhcyrqVmqAfQY1/exec',
-              '_blank',
-              'noopener,noreferrer'
-            )
-          }
+          type="button"
+          onClick={() => {
+            const link = document.createElement('a');
+            link.href =
+              'https://script.google.com/macros/s/AKfycbzldkPPgWKE_Yc9AffTFmanUwW-2LqhcyrqVmqAfQY1/exec';
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            link.click();
+          }}
           className="inline-flex items-center bg-[#D4AF37] text-black font-semibold px-6 py-3 rounded-lg hover:opacity-90 transition"
         >
           <svg
