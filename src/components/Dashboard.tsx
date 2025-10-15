@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { MapPin, Package, User, Phone, ExternalLink } from 'lucide-react';
+import { MapPin, Package, User, Phone } from 'lucide-react';
 import { supabase } from '../lib/supabaseClient';
 import { Project } from '../types/database';
 import { useAuth } from '../contexts/AuthContext';
@@ -129,15 +129,32 @@ export function Dashboard() {
           Make sure you’re signed into your <strong>@thetrivialcompany.com</strong> account.
         </p>
 
-        <a
-          href="https://script.google.com/macros/s/AKfycbzldkPPgWKE_Yc9AffTFmanUwW-2LqhcyrqVmqAfQY1/exec"
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
+          onClick={() =>
+            window.open(
+              'https://script.google.com/macros/s/AKfycbzldkPPgWKE_Yc9AffTFmanUwW-2LqhcyrqVmqAfQY1/exec',
+              '_blank',
+              'noopener,noreferrer'
+            )
+          }
           className="inline-flex items-center bg-[#D4AF37] text-black font-semibold px-6 py-3 rounded-lg hover:opacity-90 transition"
         >
-          <ExternalLink size={18} className="mr-2" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5 mr-2"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M14 3h7v7m0 0L10 21l-7-7L21 3z"
+            />
+          </svg>
           Open Space Estimator
-        </a>
+        </button>
       </div>
     </div>
   );
