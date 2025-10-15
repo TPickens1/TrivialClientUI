@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { MapPin, Package, User, Phone } from 'lucide-react';
+import { MapPin, Package, User, Phone, ExternalLink } from 'lucide-react';
 import { supabase } from '../lib/supabaseClient';
 import { Project } from '../types/database';
 import { useAuth } from '../contexts/AuthContext';
@@ -41,15 +41,21 @@ export function Dashboard() {
   }
 
   return (
-    <div className="space-y-4 md:space-y-6">
+    <div className="space-y-6 md:space-y-8">
+      {/* Header */}
       <div>
         <h2 className="text-2xl md:text-3xl font-bold text-black">Project Dashboard</h2>
-        <p className="text-sm md:text-base text-gray-600 mt-1">Overview of all your parking system projects</p>
+        <p className="text-sm md:text-base text-gray-600 mt-1">
+          Overview of all your parking system projects
+        </p>
       </div>
 
+      {/* Project List */}
       {projects.length === 0 ? (
         <div className="bg-white rounded-lg shadow-sm p-6 md:p-8 text-center">
-          <p className="text-sm md:text-base text-gray-500">No projects found. Contact support to add your projects.</p>
+          <p className="text-sm md:text-base text-gray-500">
+            No projects found. Contact support to add your projects.
+          </p>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
@@ -59,34 +65,51 @@ export function Dashboard() {
               className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 md:p-6 hover:shadow-md transition-shadow"
             >
               <div className="mb-3 md:mb-4">
-                <h3 className="text-lg md:text-xl font-semibold text-black mb-2 break-words">{project.project_name}</h3>
+                <h3 className="text-lg md:text-xl font-semibold text-black mb-2 break-words">
+                  {project.project_name}
+                </h3>
                 <div className="flex items-start text-gray-600 mb-1">
-                  <MapPin size={16} className="mr-2 text-[#FFC107] flex-shrink-0 mt-0.5" />
+                  <MapPin
+                    size={16}
+                    className="mr-2 text-[#D4AF37] flex-shrink-0 mt-0.5"
+                  />
                   <span className="text-sm break-words">{project.location}</span>
                 </div>
               </div>
 
               <div className="space-y-2 border-t border-gray-200 pt-3 md:pt-4">
                 <div className="flex items-start text-sm text-gray-700">
-                  <Package size={16} className="mr-2 text-[#FFC107] flex-shrink-0 mt-0.5" />
+                  <Package
+                    size={16}
+                    className="mr-2 text-[#D4AF37] flex-shrink-0 mt-0.5"
+                  />
                   <span className="font-medium">Product:</span>
                   <span className="ml-2 break-words">{project.product_type}</span>
                 </div>
 
                 <div className="flex items-center text-sm text-gray-700">
-                  <Package size={16} className="mr-2 text-[#FFC107] flex-shrink-0" />
+                  <Package
+                    size={16}
+                    className="mr-2 text-[#D4AF37] flex-shrink-0"
+                  />
                   <span className="font-medium">Spaces:</span>
                   <span className="ml-2">{project.number_of_spaces}</span>
                 </div>
 
                 <div className="flex items-start text-sm text-gray-700">
-                  <User size={16} className="mr-2 text-[#FFC107] flex-shrink-0 mt-0.5" />
+                  <User
+                    size={16}
+                    className="mr-2 text-[#D4AF37] flex-shrink-0 mt-0.5"
+                  />
                   <span className="font-medium">Contact:</span>
                   <span className="ml-2 break-words">{project.contact_person}</span>
                 </div>
 
                 <div className="flex items-start text-sm text-gray-700">
-                  <Phone size={16} className="mr-2 text-[#FFC107] flex-shrink-0 mt-0.5" />
+                  <Phone
+                    size={16}
+                    className="mr-2 text-[#D4AF37] flex-shrink-0 mt-0.5"
+                  />
                   <span className="font-medium">Phone:</span>
                   <span className="ml-2 break-words">{project.contact_number}</span>
                 </div>
@@ -95,6 +118,27 @@ export function Dashboard() {
           ))}
         </div>
       )}
+
+      {/* Space Estimator Section */}
+      <div className="bg-black text-center rounded-lg shadow-inner py-10 mt-8 border border-[#D4AF37]/40">
+        <h3 className="text-xl md:text-2xl font-semibold text-[#D4AF37] mb-4">
+          Space Estimator Tool
+        </h3>
+        <p className="text-gray-300 mb-6 max-w-xl mx-auto px-4">
+          Launch our interactive estimator to calculate parking system requirements.  
+          Make sure you’re signed into your <strong>@thetrivialcompany.com</strong> account.
+        </p>
+
+        <a
+          href="https://script.google.com/macros/s/AKfycbzldkPPgWKE_Yc9AffTFmanUwW-2LqhcyrqVmqAfQY1/exec"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center bg-[#D4AF37] text-black font-semibold px-6 py-3 rounded-lg hover:opacity-90 transition"
+        >
+          <ExternalLink size={18} className="mr-2" />
+          Open Space Estimator
+        </a>
+      </div>
     </div>
   );
 }
