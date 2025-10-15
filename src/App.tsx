@@ -5,7 +5,8 @@ import { Sidebar } from './components/Sidebar';
 import { Dashboard } from './components/Dashboard';
 import { SupportTickets } from './components/SupportTickets';
 import { RaulLiveData } from './components/RaulLiveData';
-import SpaceEstimator from "./components/SpaceEstimator";
+import { SpaceEstimator } from "./components/SpaceEstimator";
+
 
 function AppContent() {
   const { user, loading } = useAuth();
