@@ -5,6 +5,7 @@ import { Sidebar } from './components/Sidebar';
 import { Dashboard } from './components/Dashboard';
 import { SupportTickets } from './components/SupportTickets';
 import { RaulLiveData } from './components/RaulLiveData';
+import SpaceEstimator from "./components/SpaceEstimator";
 
 function AppContent() {
   const { user, loading } = useAuth();
@@ -28,7 +29,9 @@ function AppContent() {
               <img src="/image.png" alt="The Trivial Company" className="h-16 sm:h-24 w-auto" />
             </div>
             <h1 className="text-2xl sm:text-4xl font-bold text-black mb-2">The Trivial Company</h1>
-            <p className="text-sm sm:text-base text-gray-600">Automated Parking Systems Client Portal</p>
+            <p className="text-sm sm:text-base text-gray-600">
+              Automated Parking Systems Client Portal
+            </p>
           </div>
           <button
             onClick={() => setShowAuthModal(true)}
@@ -49,9 +52,14 @@ function AppContent() {
         <div className="flex justify-end mb-3 sm:mb-4">
           <img src="/image.png" alt="The Trivial Company" className="h-12 sm:h-14 lg:h-16 w-auto" />
         </div>
+
+        {/* ==== MAIN VIEW CONTROL ==== */}
         {activeView === 'dashboard' && <Dashboard />}
         {activeView === 'tickets' && <SupportTickets />}
         {activeView === 'raul' && <RaulLiveData />}
+        {activeView === 'spaceEstimator' && (
+          <SpaceEstimator onBack={() => setActiveView('dashboard')} />
+        )}
       </main>
     </div>
   );
