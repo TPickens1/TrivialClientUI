@@ -1,9 +1,10 @@
 // src/Dashboard.tsx
 import { useState } from "react";
 import { Sidebar } from "./Sidebar";
-import Tickets from "./views/Tickets";
-import RaulLive from "./views/RaulLive";
-import SpaceEstimator from "./views/SpaceEstimator";
+import { SupportTickets } from "./SupportTickets";
+import { RaulLiveData } from "./RaulLiveData";
+import { SpaceEstimator } from "./SpaceEstimator";
+
 
 export default function Dashboard() {
   const [activeView, setActiveView] = useState("dashboard");
