@@ -1,22 +1,23 @@
-// src/views/SpaceEstimator.tsx
 import { ArrowLeft } from "lucide-react";
 
 interface SpaceEstimatorProps {
-  onBack: () => void;
+  onBack?: () => void;
 }
 
-export default function SpaceEstimator({ onBack }: SpaceEstimatorProps) {
+export function SpaceEstimator({ onBack }: SpaceEstimatorProps) {
   return (
     <div className="flex flex-col h-screen bg-black text-white">
       {/* Header */}
       <div className="flex items-center justify-between px-4 py-3 bg-gray-900 border-b border-gray-800">
-        <button
-          onClick={onBack}
-          className="flex items-center text-[#D4AF37] hover:text-yellow-300 font-semibold"
-        >
-          <ArrowLeft className="mr-2 h-5 w-5" />
-          Back to Dashboard
-        </button>
+        {onBack && (
+          <button
+            onClick={onBack}
+            className="flex items-center text-[#D4AF37] hover:text-yellow-300 font-semibold"
+          >
+            <ArrowLeft className="mr-2 h-5 w-5" />
+            Back to Dashboard
+          </button>
+        )}
         <h1 className="text-lg font-bold">Space Estimator</h1>
       </div>
 
