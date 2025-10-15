@@ -1,24 +1,35 @@
-// src/Dashboard.tsx
 import { useState } from "react";
 import { Sidebar } from "./Sidebar";
 import { SupportTickets } from "./SupportTickets";
 import { RaulLiveData } from "./RaulLiveData";
 import { SpaceEstimator } from "./SpaceEstimator";
 
-
-export default function Dashboard() {
+/**
+ * Main Dashboard component — controls view switching between
+ * Dashboard overview, Support Tickets, RAUL Live Data, and Space Estimator.
+ */
+export function Dashboard() {
   const [activeView, setActiveView] = useState("dashboard");
 
   const renderView = () => {
     switch (activeView) {
       case "tickets":
-        return <Tickets />;
+        return <SupportTickets />;
       case "raul":
-        return <RaulLive />;
+        return <RaulLiveData />;
       case "spaceEstimator":
         return <SpaceEstimator onBack={() => setActiveView("dashboard")} />;
       default:
-        return <DashboardView />;
+        return (
+          <div className="p-8">
+            <h1 className="text-3xl font-bold text-[#D4AF37] mb-4">
+              Project Dashboard
+            </h1>
+            <p className="text-gray-300">
+              Select an option from the sidebar to view your project data.
+            </p>
+          </div>
+        );
     }
   };
 
