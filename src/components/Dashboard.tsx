@@ -1,6 +1,6 @@
 // src/Dashboard.tsx
 import { useState } from "react";
-import { Sidebar } from "./components/Sidebar";
+import { Sidebar } from "./Sidebar";
 import DashboardView from "./views/Dashboard";
 import Tickets from "./views/Tickets";
 import RaulLive from "./views/RaulLive";
