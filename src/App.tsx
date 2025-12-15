@@ -56,13 +56,26 @@ function AppContent() {
   }
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
-      {/* Sidebar (desktop + mobile unchanged) */}
+    <div className="flex h-screen bg-gray-50">
+      {/* Sidebar unchanged */}
       <Sidebar activeView={activeView} onViewChange={setActiveView} />
 
       {/* Main content */}
-      <main className="flex-1 overflow-y-auto px-3 py-3 sm:px-6 sm:py-6 lg:px-8 lg:py-8">
-        {/* Header logo */}
+      <main
+        className="
+          flex-1
+          overflow-y-auto
+          p-3
+          sm:p-6
+          lg:p-8
+          pt-12
+          sm:pt-16
+          lg:pt-8
+          text-[0.95rem]
+          sm:text-base
+        "
+      >
+        {/* Header logo (desktop behavior preserved) */}
         <div className="flex justify-end mb-3 sm:mb-4">
           <img
             src="/image.png"
