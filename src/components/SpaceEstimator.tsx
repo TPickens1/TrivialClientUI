@@ -1,42 +1,29 @@
-import { ArrowLeft } from "lucide-react";
+import React from 'react';
 
 interface SpaceEstimatorProps {
-  onBack?: () => void;
+  onBack: () => void;
 }
 
 export function SpaceEstimator({ onBack }: SpaceEstimatorProps) {
   return (
-    <div className="flex flex-col h-screen bg-black text-white">
-      {/* Header */}
-      <div className="flex items-center justify-between px-4 py-3 bg-gray-900 border-b border-gray-800">
-        {onBack && (
-          <button
-            onClick={onBack}
-            className="flex items-center text-[#D4AF37] hover:text-yellow-300 font-semibold"
-          >
-            <ArrowLeft className="mr-2 h-5 w-5" />
-            Back to Dashboard
-          </button>
-        )}
-        <h1 className="text-lg font-bold">Space Estimator</h1>
+    <div className="w-full h-[100svh] sm:h-full bg-white overflow-hidden">
+      {/* Optional mobile back button */}
+      <div className="sm:hidden absolute top-3 left-3 z-10">
+        <button
+          onClick={onBack}
+          className="bg-black/80 text-white px-3 py-1.5 rounded-md text-sm"
+        >
+          ← Back
+        </button>
       </div>
 
-      {/* Embedded Google Apps Script Web App */}
       <iframe
-        src="https://script.google.com/macros/s/AKfycbxx3WmvZ3ql-kIUX1c6Vx1KSDyr3lJ11h3WX4HpbySUoKUuAcSBtKgj6e-XIxyvvIjUjg/exec"
-        title="Space Estimator"
-        className="flex-1 border-0"
-        style={{
-          width: "100%",
-          height: "100%",
-          backgroundColor: "white",
-        }}
-      ></iframe>
+        src="PUT_YOUR_CLEARANCE_GUIDE_URL_HERE"
+        title="Clearance Guide"
+        className="w-full h-full border-0"
+        loading="lazy"
+        referrerPolicy="no-referrer"
+      />
     </div>
   );
-}
-import { ArrowLeft } from "lucide-react";
-
-interface SpaceEstimatorProps {
-  onBack?: () => void;
 }
