@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { Sidebar } from "./Sidebar";
 import { SupportTickets } from "./SupportTickets";
 import { RaulLiveData } from "./RaulLiveData";
 import { SpaceEstimator } from "./SpaceEstimator";
 
 /**
- * Main Dashboard component — controls view switching between
- * Dashboard overview, Support Tickets, RAUL Live Data, and Space Estimator.
+ * Dashboard content controller.
+ * Layout (Sidebar, app chrome) is owned by App.tsx.
  */
 export function Dashboard() {
   const [activeView, setActiveView] = useState("dashboard");
@@ -15,10 +14,13 @@ export function Dashboard() {
     switch (activeView) {
       case "tickets":
         return <SupportTickets />;
+
       case "raul":
         return <RaulLiveData />;
+
       case "spaceEstimator":
         return <SpaceEstimator onBack={() => setActiveView("dashboard")} />;
+
       default:
         return (
           <div className="p-8">
@@ -34,9 +36,8 @@ export function Dashboard() {
   };
 
   return (
-    <div className="flex h-screen bg-black text-white">
-      <Sidebar activeView={activeView} onViewChange={setActiveView} />
-      <div className="flex-1 overflow-hidden">{renderView()}</div>
+    <div className="flex-1 h-full overflow-hidden">
+      {renderView()}
     </div>
   );
 }
