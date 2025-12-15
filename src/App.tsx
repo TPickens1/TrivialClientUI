@@ -71,26 +71,27 @@ function AppContent() {
           pt-12
           sm:pt-16
           lg:pt-8
-          text-[0.95rem]
-          sm:text-base
         "
       >
-        {/* Header logo (desktop behavior preserved) */}
-        <div className="flex justify-end mb-3 sm:mb-4">
-          <img
-            src="/image.png"
-            alt="The Trivial Company"
-            className="h-10 sm:h-14 lg:h-16 w-auto"
-          />
-        </div>
+        {/* MOBILE SCALE WRAPPER (mobile only) */}
+        <div className="scale-[1.15] origin-top-left sm:scale-100">
+          {/* Header logo (desktop behavior preserved) */}
+          <div className="flex justify-end mb-3 sm:mb-4">
+            <img
+              src="/image.png"
+              alt="The Trivial Company"
+              className="h-10 sm:h-14 lg:h-16 w-auto"
+            />
+          </div>
 
-        {/* ==== MAIN VIEW CONTROL ==== */}
-        {activeView === 'dashboard' && <Dashboard />}
-        {activeView === 'tickets' && <SupportTickets />}
-        {activeView === 'raul' && <RaulLiveData />}
-        {activeView === 'spaceEstimator' && (
-          <SpaceEstimator onBack={() => setActiveView('dashboard')} />
-        )}
+          {/* ==== MAIN VIEW CONTROL ==== */}
+          {activeView === 'dashboard' && <Dashboard />}
+          {activeView === 'tickets' && <SupportTickets />}
+          {activeView === 'raul' && <RaulLiveData />}
+          {activeView === 'spaceEstimator' && (
+            <SpaceEstimator onBack={() => setActiveView('dashboard')} />
+          )}
+        </div>
       </main>
     </div>
   );
