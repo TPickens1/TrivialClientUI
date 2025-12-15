@@ -14,12 +14,12 @@ export function RaulLiveData() {
 
       <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-2 md:p-3">
         <div className="w-full h-[75vh] border rounded-lg overflow-hidden">
-          <iframe
-            src="https://docs.google.com/spreadsheets/d/1oCtuRrwIS16VH2FxEr6yA6Iuh4f7TidZAxfbY4q_bhQ/edit?gid=0#gid=0"
-            className="w-full h-full"
-            frameBorder="0"
-            allowFullScreen
-          />
+<iframe
+  src="https://docs.google.com/spreadsheets/d/1oCtuRrwIS16VH2FxEr6yA6Iuh4f7TidZAxfbY4q_bhQ/pubhtml?widget=true&headers=false"
+  className="w-full h-full"
+  frameBorder="0"
+/>
+
         </div>
       </div>
     </div>
